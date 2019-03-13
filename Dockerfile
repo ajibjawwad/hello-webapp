@@ -6,16 +6,16 @@ MAINTAINER "balakrishna.wlas@gmail.com"
 
 # Removing the default xmls
 #manager xml
-RM /usr/local/tomcat/webapps/manager/META-INF/context.xml
+RUN rm  /usr/local/tomcat/webapps/manager/META-INF/context.xml
 #host-manager xml
-RM /usr/local/tomcat/webapps/host-manager/META-INF/context.xml
+RUN rm /usr/local/tomcat/webapps/host-manager/META-INF/context.xml
 #tomcat-users xml
-RM /usr/local/tomcat/conf/tomcat-users.xml
+RUN rm /usr/local/tomcat/conf/tomcat-users.xml
 
 # Custom default xmls of tomcat
 #manager xml
-COPY ma-context.xml /usr/local/tomcat/webapps/manager/META-INF/context.xml
+ADD ma-context.xml /usr/local/tomcat/webapps/manager/META-INF/
 #host-manager xml
-COPY ha-context.xml /usr/local/tomcat/webapps/host-manager/META-INF/context.xml
+ADD ha-context.xml /usr/local/tomcat/webapps/host-manager/META-INF/
 #tomcat-users xml
-COPY tomcat-user.xml /usr/local/tomcat/conf/tomcat-users.xml
+ADD tomcat-user.xml /usr/local/tomcat/conf/
